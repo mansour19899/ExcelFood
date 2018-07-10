@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using ExcelDataReader;
 
 namespace ExcelFood
 {
@@ -50,6 +52,39 @@ namespace ExcelFood
             AllowSave = true;
             list.Clear();
             //open excel
+
+            FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+
+            //1. Reading from a binary Excel file ('97-2003 format; *.xls)
+            
+            //...
+            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //...
+            //3. DataSet - The result of each spreadsheet will be created in the result.Tables
+            DataSet result = excelReader.AsDataSet();
+            //...
+            //4. DataSet - Create column names from first row
+            //excelReader.IsFirstRowAsColumnNames = true;
+            //DataSet result = excelReader.AsDataSet();
+
+            var Sheet2 = result.Tables[1];
+            //var rrr = Sheet2[1].ItemArray[1];
+            int ii = 0;
+            foreach (DataRow item in Sheet2.Rows)
+            {
+                MessageBox.Show(item[1].ToString());
+            }
+
+            //5. Data Reader methods
+            while (excelReader.Read())
+            {
+                //excelReader.GetInt32(0);
+            }
+
+            //6. Free resources (IExcelDataReader is IDisposable)
+            excelReader.Close();
+
             Excel.Application xlApp = new Excel.Application();
             //open workbook
             Excel.Workbook workbook = xlApp.Workbooks.Open(filePath);
@@ -75,8 +110,64 @@ namespace ExcelFood
             TraySchedule Dinner2;
             TraySchedule Dinner3;
 
-            
+            while (x)
+            {
+                if (excelFile.Cells[i, 1].Value2 != null)
+                {
 
+                    Lunch1 = new TraySchedule();
+                    Lunch2 = new TraySchedule();
+                    Lunch3 = new TraySchedule();
+
+                    Dinner1 = new TraySchedule();
+                    Dinner2 = new TraySchedule();
+                    Dinner3 = new TraySchedule();
+
+                    var Date = excelFile.Cells[i, 1].Value2.ToString();
+
+                    var yyy = excelFile.Cells[i, 5].Value2.ToString();
+                    var yy = Convert.ToInt16(excelFile.Cells[i, 4].Value2);
+
+                    Lunch1.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 2].Value2), Convert.ToInt16(excelFile.Cells[i, 3].Value2));
+                    Lunch1.schedule = CreateSchedule(Date, 1);
+
+                    Lunch2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 4].Value2), Convert.ToInt16(excelFile.Cells[i, 5].Value2));
+                    Lunch2.schedule = CreateSchedule(Date, 1);
+
+                    Lunch3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 6].Value2), Convert.ToInt16(excelFile.Cells[i, 7].Value2));
+                    Lunch3.schedule = CreateSchedule(Date, 1);
+
+                    Dinner1.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 8].Value2), Convert.ToInt16(excelFile.Cells[i, 9].Value2));
+                    Dinner1.schedule = CreateSchedule(Date, 2);
+
+                    Dinner2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 10].Value2), Convert.ToInt16(excelFile.Cells[i, 11].Value2));
+                    Dinner2.schedule = CreateSchedule(Date, 2);
+
+                    Dinner3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 12].Value2), Convert.ToInt16(excelFile.Cells[i, 13].Value2));
+                    Dinner3.schedule = CreateSchedule(Date, 2);
+
+
+                    list.Add(Lunch1);
+                    list.Add(Lunch2);
+                    list.Add(Lunch3);
+                    list.Add(Dinner1);
+                    list.Add(Dinner2);
+                    list.Add(Dinner3);
+
+                    if (list.Any(p => p.tray == null))
+                    {
+                        x = false;
+                        AllowSave = false;
+                    }
+
+                    i = i + 1;
+
+                }
+                else
+                    x = false;
+            }
+
+            //-------------------------------------------------------------------------------------
             while (x)
             {
                 if (excelFile.Cells[i, 1].Value2 != null)
@@ -134,23 +225,25 @@ namespace ExcelFood
                     x = false;
             }
 
-            if(AllowSave)
-            {
-                foreach (var item in list)
-                {
-                    db.Trays.Add(item.tray);
-                    db.SaveChanges();
+    
 
-                    item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
+            //if(AllowSave)
+            //{
+            //    foreach (var item in list)
+            //    {
+            //        db.Trays.Add(item.tray);
+            //        db.SaveChanges();
 
-                    db.Schedules.Add(item.schedule);
-                    db.SaveChanges();
+            //        item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
 
-                  //  MessageBox.Show(item.schedule.SDate);
-                }
+            //        db.Schedules.Add(item.schedule);
+            //        db.SaveChanges();
+
+            //      //  MessageBox.Show(item.schedule.SDate);
+            //    }
 
 
-            }
+            //}
 
 
 
