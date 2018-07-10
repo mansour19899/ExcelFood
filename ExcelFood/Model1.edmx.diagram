@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="878c0cc287f94d34ae0f4d47c6467779" Name="Diagram1">
+        <EntityTypeShape EntityType="PoonehModel.Card" Width="1.5" PointX="3.75" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Company" Width="1.5" PointX="0.75" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Contractor" Width="1.5" PointX="18.5" PointY="76.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.CookOrder" Width="1.5" PointX="10.25" PointY="70.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.CookOrderType" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.DailyMinute" Width="1.5" PointX="16.5" PointY="63.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.DailyMinuteDocument" Width="1.5" PointX="24.75" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.DailyMinuteItem" Width="1.5" PointX="24.75" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.EmploymentType" Width="1.5" PointX="3.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.EntireCost" Width="1.5" PointX="11.25" PointY="49.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.EntireCostPerCompany" Width="1.5" PointX="3" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.ExtraTime" Width="1.5" PointX="6" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Faal" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Faal_Temp" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Food" Width="1.5" PointX="20.25" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Food_Material" Width="1.5" PointX="27" PointY="69.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.FoodType" Width="1.5" PointX="18" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Guest" Width="1.5" PointX="9" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.GuestCard" Width="1.5" PointX="3" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.GuestGeneral" Width="1.5" PointX="5.25" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.GuestType" Width="1.5" PointX="6.75" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.HelpDesk" Width="1.5" PointX="16.5" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.HelpDeskCategory" Width="1.5" PointX="14.25" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.HoliDay" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.IdentifyInfo" Width="1.5" PointX="6" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Kiosk" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.KioskApp" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.KioskMessage" Width="1.5" PointX="2.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.KioskPass" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.KioskRestartTime" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.KioskTimeSetter" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Material" Width="1.5" PointX="21.75" PointY="86.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.MaterialType" Width="1.5" PointX="19.5" PointY="86" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Meal" Width="1.5" PointX="9" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.MeasurementUnit" Width="1.5" PointX="19.5" PointY="88.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.MidNight" Width="1.5" PointX="3" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.MidNightUnit" Width="1.5" PointX="3" PointY="87.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.MiniRestRequest" Width="1.5" PointX="13.25" PointY="71" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PageContent" Width="1.5" PointX="19.5" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person" Width="1.5" PointX="6" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_IdentifyInfo" Width="1.5" PointX="8.25" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_IdentifyInfo_Bup" Width="1.5" PointX="8.25" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_IdentifyInfo_temp" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_Meal" Width="1.5" PointX="11.25" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_Restaurant" Width="1.5" PointX="11.25" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_Restaurant_1395_03" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PersonType" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehForm" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehReservation" Width="1.5" PointX="11.25" PointY="65.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehUser" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehUser_Form" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehWebPage" Width="1.5" PointX="17.25" PointY="54" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PoonehWebUser" Width="1.5" PointX="14.25" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.PRTemp" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Res_Cont_Contract" Width="1.5" PointX="14.25" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Res_Cont_Contract_Restaurant" Width="1.5" PointX="18.5" PointY="73" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Res_Cont_ContractItem" Width="1.5" PointX="22.5" PointY="66" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.ReservationDayCount" Width="1.5" PointX="10.25" PointY="82.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Restaurant" Width="1.5" PointX="8" PointY="68.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.RestaurantContractor" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.RestaurantDailyMinute" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Schedule" Width="1.5" PointX="21.5" PointY="72.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Sex" Width="1.5" PointX="3.75" PointY="54.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.ShiftDate" Width="1.5" PointX="5.25" PointY="86.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Stack" Width="1.5" PointX="20.75" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.StackDocument" Width="1.5" PointX="23" PointY="78.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.StackDocumentType" Width="1.5" PointX="20.75" PointY="91.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.StackStock" Width="1.5" PointX="24" PointY="75.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Status" Width="1.5" PointX="5.75" PointY="74.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.SupplierStatu" Width="1.5" PointX="16.25" PointY="76" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.sysdiagram" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.TakeAway" Width="1.5" PointX="17.25" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.TakeAwayDetail" Width="1.5" PointX="19.5" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.TakeAwayDocument" Width="1.5" PointX="21.75" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Technician" Width="1.5" PointX="11.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.test" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Tray" Width="1.5" PointX="19.25" PointY="81.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.TrayItem" Width="1.5" PointX="25.5" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Unit" Width="1.5" PointX="16.25" PointY="70.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.UnitCard" Width="1.5" PointX="24.5" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.UsedService" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.VIPServed" Width="1.5" PointX="22.5" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.WebUser_Page" Width="1.5" PointX="19.5" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.WorkSheet" Width="1.5" PointX="3.75" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Person_IdentifyInfo13961128" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoonehModel.Schedule13951005" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_UnitCard_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_EntireCostPerCompany_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ExtraTime_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestCard_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestGeneral_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNight_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNightUnit_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehWebUser_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Restaurant_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TakeAwayDetail_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Unit_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_UnitCard_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Contractor_SupplierStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Contractor_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_CookOrder_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_EntireCostPerCompany_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNight_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_Contract_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Stack_Contractor" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_CookOrder_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_CookOrder_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_CookOrder_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_CookOrder_Tray" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinute_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinute_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinute_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinute_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinuteDocument_DailyMinute" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinuteItem_DailyMinute" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinuteDocument_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinuteItem_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_DailyMinuteItem_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_EmploymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_EntireCost_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_EntireCostPerCompany_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ExtraTime_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ExtraTime_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ExtraTime_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Food_FoodType" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Food_Material_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_ContractItem_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TrayItems_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Food_Material_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_GuestType" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_PoonehWebUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_PoonehWebUser2" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Guest_UnitCard" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestGeneral_GuestCard" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestGeneral_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestGeneral_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_GuestGeneral_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_HelpDesk_HelpDeskCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_HelpDesk_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_IdentifyInfo_IdentifyInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Kiosk_KioskMessage" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Material_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Material_MeasurementUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Material_MeasurementUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_StackDocument_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_StackStock_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MiniRestRequest_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Meal_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Schedule_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_VIPServed_Meal" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNight_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNight_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MidNight_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ShiftDate_MidNightUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MiniRestRequest_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_MiniRestRequest_Tray" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PageContent_PoonehWebPage" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_IdentifyInfo_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_IdentifyInfo_Person_Bup" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_IdentifyInfo_Person2_Bup" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Meal_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Restaurant_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Sex" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_WorkSheet1" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehWebUser_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Person_Restaurant_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehUser_Form_PoonehForm" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Tray" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehReservation_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehUser_Form_PoonehUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_WebUser_Page_PoonehWebPage" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_PoonehWebUser_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ShiftDate_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TakeAwayDetail_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_VIPServed_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_WebUser_Page_PoonehWebUser" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_Contract_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_Contract_Restaurant_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_ContractItem_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Schedule_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ShiftDate_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_VIPServed_Res_Cont_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Res_Cont_Contract_Restaurant_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_VIPServed_Res_Cont_ContractItem" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_ReservationDayCount_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Restaurant_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Schedule_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TakeAwayDetail_Restaurant1" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Unit_Restaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_Schedule_Tray" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_StackDocument_Stack" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_StackStock_Stack" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_StackDocument_StackDocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TakeAwayDetail_TakeAway" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TakeAwayDocument_TakeAwayDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_TrayItem_Tray" ManuallyRouted="false" />
+        <AssociationConnector Association="PoonehModel.FK_UnitCard_Unit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
