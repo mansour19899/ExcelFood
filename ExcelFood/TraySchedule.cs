@@ -10,5 +10,11 @@ namespace ExcelFood
     {
         public Tray tray { get; set; }
         public Schedule schedule { get; set; }
+
+        public TraySchedule()
+        {
+            //tray = new Tray();
+            //schedule = new Schedule();
+        }
     }
 }
