@@ -56,10 +56,22 @@ namespace ExcelFood
 
             bool x = true;
             int i = 1;
+
+            TraySchedule Lunch1 = new TraySchedule();
+            TraySchedule Lunch2 = new TraySchedule();
+            TraySchedule Lunch3 = new TraySchedule();
+
+            TraySchedule Dinner1 = new TraySchedule();
+            TraySchedule Dinner2 = new TraySchedule();
+            TraySchedule Dinner3 = new TraySchedule();
+
             while (x)
             {
                 if (excelFile.Cells[i, 1].Value2 != null)
                 {
+                    Lunch1.schedule.SDate = excelFile.Cells[i, 1].Value2;
+
+                    
 
                 }
                 else
