@@ -14,13 +14,16 @@ namespace ExcelFood
 {
     public partial class Form1 : Form
     {
-        string filePath = "";
+        string filePath = "C:\\Users\\gatatech\\Desktop\\Book1.xlsx";
         PoonehEntities db = null;
         List<TraySchedule> list = new List<TraySchedule>();
+        List<Food> ListFood;
         public Form1()
         {
             InitializeComponent();
             db = new PoonehEntities();
+
+           ListFood = db.Foods.ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,6 +38,7 @@ namespace ExcelFood
             {
                 //save selected file name
                 filePath = openFileDialog1.FileName;
+
                 lblFilePath.Text = filePath;
                 int x = 0;
             }
@@ -52,10 +56,14 @@ namespace ExcelFood
             // int row = int.Parse(txtRow.Text), column = int.Parse(txtColumn.Text);
             int row = 20, column = 5;
 
-            
+            var t = ListFood;
 
             bool x = true;
             int i = 1;
+            int code = 0;
+
+            Tray TempTray = new Tray();
+            Schedule TempSchedule = new Schedule();
 
             TraySchedule Lunch1 = new TraySchedule();
             TraySchedule Lunch2 = new TraySchedule();
@@ -65,13 +73,18 @@ namespace ExcelFood
             TraySchedule Dinner2 = new TraySchedule();
             TraySchedule Dinner3 = new TraySchedule();
 
+            
+
             while (x)
             {
                 if (excelFile.Cells[i, 1].Value2 != null)
                 {
-                    Lunch1.schedule.SDate = excelFile.Cells[i, 1].Value2;
+                    //Lunch1.schedule.SDate = excelFile.Cells[i, 1].Value2.ToString();
+                    var y= excelFile.Cells[i, 1].Value2.ToString();
+                    TempSchedule.SDate = "hi";
+                   // var TempTray = CreateTray(int.Parse(excelFile.Cells[i, 2].Value2));
 
-                    
+                   
 
                 }
                 else
@@ -85,7 +98,7 @@ namespace ExcelFood
 
 
 
-            var t = excelFile.Cells[row, column];
+          
             var tt = excelFile.Cells[row, column].Value2;
             var ttt = excelFile.Cells[row, column].Value;
 
@@ -107,6 +120,13 @@ namespace ExcelFood
             //Marshal.ReleaseComObject(xlApp);
 
 
+        }
+
+        private Tray CreateTray(int code)
+        {
+
+
+            return null;
         }
     }
 }
