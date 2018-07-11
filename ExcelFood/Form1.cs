@@ -16,17 +16,18 @@ namespace ExcelFood
 {
     public partial class Form1 : Form
     {
-        string filePath = "D:\\projects\\ExcelFood\\Book1.xlsx";
+        string filePath = "E:\\123كدينگ.xls";
         PoonehEntities db = null;
         List<TraySchedule> list = new List<TraySchedule>();
         List<Food> ListFood;
-        bool AllowSave = true;
+        bool AllowSaveCode = true;
+        bool AllowSaveNull = true;
         public Form1()
         {
             InitializeComponent();
             db = new PoonehEntities();
 
-           ListFood = db.Foods.ToList();
+            ListFood = db.Foods.ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,57 +50,9 @@ namespace ExcelFood
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            AllowSave = true;
+            AllowSaveCode = true;
+            AllowSaveNull = true;
             list.Clear();
-            //open excel
-
-            FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
-
-            //1. Reading from a binary Excel file ('97-2003 format; *.xls)
-            
-            //...
-            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
-            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            //...
-            //3. DataSet - The result of each spreadsheet will be created in the result.Tables
-            DataSet result = excelReader.AsDataSet();
-            //...
-            //4. DataSet - Create column names from first row
-            //excelReader.IsFirstRowAsColumnNames = true;
-            //DataSet result = excelReader.AsDataSet();
-
-            var Sheet2 = result.Tables[1];
-            //var rrr = Sheet2[1].ItemArray[1];
-            int ii = 0;
-            foreach (DataRow item in Sheet2.Rows)
-            {
-                MessageBox.Show(item[1].ToString());
-            }
-
-            //5. Data Reader methods
-            while (excelReader.Read())
-            {
-                //excelReader.GetInt32(0);
-            }
-
-            //6. Free resources (IExcelDataReader is IDisposable)
-            excelReader.Close();
-
-            Excel.Application xlApp = new Excel.Application();
-            //open workbook
-            Excel.Workbook workbook = xlApp.Workbooks.Open(filePath);
-            //open sheet
-            Excel._Worksheet sheet = workbook.Sheets[2];
-            Excel.Range excelFile = sheet.UsedRange;
-            // int row = int.Parse(txtRow.Text), column = int.Parse(txtColumn.Text);
-            int row = 20, column = 5;
-
-            var t = ListFood;
-
-            bool x = true;
-            int i = 1;
-            int code = 0;
-
 
 
             TraySchedule Lunch1;
@@ -110,183 +63,184 @@ namespace ExcelFood
             TraySchedule Dinner2;
             TraySchedule Dinner3;
 
-            while (x)
+            try
             {
-                if (excelFile.Cells[i, 1].Value2 != null)
+                //open excel
+
+                FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+
+                //1. Reading from a binary Excel file ('97-2003 format; *.xls)
+                IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+                //...
+                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+                //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                //...
+                //3. DataSet - The result of each spreadsheet will be created in the result.Tables
+                DataSet result = excelReader.AsDataSet();
+                //...
+                //4. DataSet - Create column names from first row
+                //excelReader.IsFirstRowAsColumnNames = true;
+                //DataSet result = excelReader.AsDataSet();
+
+                var Sheet2 = result.Tables[5];
+                //var rrr = Sheet2[1].ItemArray[1];
+                int count = 0;
+
+
+                foreach (DataRow item in Sheet2.Rows)
                 {
 
-                    Lunch1 = new TraySchedule();
-                    Lunch2 = new TraySchedule();
-                    Lunch3 = new TraySchedule();
-
-                    Dinner1 = new TraySchedule();
-                    Dinner2 = new TraySchedule();
-                    Dinner3 = new TraySchedule();
-
-                    var Date = excelFile.Cells[i, 1].Value2.ToString();
-
-                    var yyy = excelFile.Cells[i, 5].Value2.ToString();
-                    var yy = Convert.ToInt16(excelFile.Cells[i, 4].Value2);
-
-                    Lunch1.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 2].Value2), Convert.ToInt16(excelFile.Cells[i, 3].Value2));
-                    Lunch1.schedule = CreateSchedule(Date, 1);
-
-                    Lunch2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 4].Value2), Convert.ToInt16(excelFile.Cells[i, 5].Value2));
-                    Lunch2.schedule = CreateSchedule(Date, 1);
-
-                    Lunch3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 6].Value2), Convert.ToInt16(excelFile.Cells[i, 7].Value2));
-                    Lunch3.schedule = CreateSchedule(Date, 1);
-
-                    Dinner1.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 8].Value2), Convert.ToInt16(excelFile.Cells[i, 9].Value2));
-                    Dinner1.schedule = CreateSchedule(Date, 2);
-
-                    Dinner2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 10].Value2), Convert.ToInt16(excelFile.Cells[i, 11].Value2));
-                    Dinner2.schedule = CreateSchedule(Date, 2);
-
-                    Dinner3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 12].Value2), Convert.ToInt16(excelFile.Cells[i, 13].Value2));
-                    Dinner3.schedule = CreateSchedule(Date, 2);
-
-
-                    list.Add(Lunch1);
-                    list.Add(Lunch2);
-                    list.Add(Lunch3);
-                    list.Add(Dinner1);
-                    list.Add(Dinner2);
-                    list.Add(Dinner3);
-
-                    if (list.Any(p => p.tray == null))
+                    if(count<34&count>2)
                     {
-                        x = false;
-                        AllowSave = false;
+                        Lunch1 = new TraySchedule();
+                        Lunch2 = new TraySchedule();
+                        Lunch3 = new TraySchedule();
+
+                        Dinner1 = new TraySchedule();
+                        Dinner2 = new TraySchedule();
+                        Dinner3 = new TraySchedule();
+
+
+
+                        try
+                        {
+                            var Date = item[2].ToString();
+
+                            Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
+                            Lunch1.schedule = CreateSchedule(Date, 1);
+
+                            Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
+                            Lunch2.schedule = CreateSchedule(Date, 1);
+
+                            Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
+                            Lunch3.schedule = CreateSchedule(Date, 1);
+
+                            Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
+                            Dinner1.schedule = CreateSchedule(Date, 2);
+
+                            Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
+                            Dinner2.schedule = CreateSchedule(Date, 2);
+
+                            Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
+                            Dinner3.schedule = CreateSchedule(Date, 2);
+
+                            list.Add(Lunch1);
+                            list.Add(Lunch2);
+                            list.Add(Lunch3);
+                            list.Add(Dinner1);
+                            list.Add(Dinner2);
+                            list.Add(Dinner3);
+
+                        }
+                        catch (IOException)
+                        {
+                            MessageBox.Show("فایل اکسل را ببندید");
+                        }
+                        catch (InvalidCastException)
+                        {
+
+                            AllowSaveNull = false;
+                            MessageBox.Show(" دارای فیلد خالی");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("");
+                        }
+
+                        finally
+                        {
+                            //5. Data Reader methods
+                            while (excelReader.Read())
+                            {
+                                //excelReader.GetInt32(0);
+                            }
+
+                            //6. Free resources (IExcelDataReader is IDisposable)
+                            //excelReader.Close();
+
+                        }
                     }
 
-                    i = i + 1;
-
+                    count = count + 1;
                 }
-                else
-                    x = false;
+            }
+            catch (IOException)
+            {
+
+                MessageBox.Show("فایل انتخاب شده را ببندید");
             }
 
-            //-------------------------------------------------------------------------------------
-            while (x)
+
+            AllowSaveCode = list.All(p => p.tray != null);
+
+
+            // ----------------------------------------------------------
+
+            if (AllowSaveNull & AllowSaveCode)
             {
-                if (excelFile.Cells[i, 1].Value2 != null)
+                lblNotification.Text = "بارگذاری فایل اکسل با موفقیت انجام شد";
+                lblNotification.ForeColor = Color.DarkGreen;
+
+                foreach (var item in list)
                 {
+                    //db.Trays.Add(item.tray);
+                    //db.SaveChanges();
 
-                    Lunch1 = new TraySchedule();
-                    Lunch2 = new TraySchedule();
-                    Lunch3 = new TraySchedule();
+                    //item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
 
-                     Dinner1 = new TraySchedule();
-                    Dinner2 = new TraySchedule();
-                    Dinner3 = new TraySchedule();
+                    //db.Schedules.Add(item.schedule);
+                    //db.SaveChanges();
 
-                    var Date= excelFile.Cells[i, 1].Value2.ToString();
-
-                    var yyy =excelFile.Cells[i, 5].Value2.ToString();
-                    var yy = Convert.ToInt16(excelFile.Cells[i, 4].Value2);
-
-                    Lunch1.tray = CreateTray (Convert.ToInt16(excelFile.Cells[i, 2].Value2), Convert.ToInt16(excelFile.Cells[i, 3].Value2));
-                    Lunch1.schedule = CreateSchedule(Date, 1);
-                    
-                    Lunch2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 4].Value2), Convert.ToInt16(excelFile.Cells[i, 5].Value2));
-                    Lunch2.schedule = CreateSchedule(Date, 1);
-
-                    Lunch3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 6].Value2), Convert.ToInt16(excelFile.Cells[i, 7].Value2));
-                    Lunch3.schedule = CreateSchedule(Date, 1);
-
-                    Dinner1.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 8].Value2), Convert.ToInt16(excelFile.Cells[i, 9].Value2));
-                    Dinner1.schedule = CreateSchedule(Date, 2);
-
-                    Dinner2.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 10].Value2), Convert.ToInt16(excelFile.Cells[i, 11].Value2));
-                    Dinner2.schedule = CreateSchedule(Date, 2);
-
-                    Dinner3.tray = CreateTray(Convert.ToInt16(excelFile.Cells[i, 12].Value2), Convert.ToInt16(excelFile.Cells[i, 13].Value2));
-                    Dinner3.schedule = CreateSchedule(Date, 2);
-                    
-
-                    list.Add(Lunch1);
-                    list.Add(Lunch2);
-                    list.Add(Lunch3);
-                    list.Add(Dinner1);
-                    list.Add(Dinner2);
-                    list.Add(Dinner3);
-
-                    if (list.Any(p => p.tray == null))
-                    {
-                        x = false;
-                        AllowSave = false;
-                    }
-                       
-                    i = i + 1;
 
                 }
-                else
-                    x = false;
-            }
+                MessageBox.Show("انجام شد");
 
-    
-
-            //if(AllowSave)
-            //{
-            //    foreach (var item in list)
-            //    {
-            //        db.Trays.Add(item.tray);
-            //        db.SaveChanges();
-
-            //        item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
-
-            //        db.Schedules.Add(item.schedule);
-            //        db.SaveChanges();
-
-            //      //  MessageBox.Show(item.schedule.SDate);
-            //    }
-
-
-            //}
-
-
-
-
-
-            // MessageBox.Show("Value:  " + excelFile.Cells[row, column].Value2.ToString());
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            //release com objects to fully kill excel process from running in the background
-            Marshal.ReleaseComObject(excelFile);
-            //close and release
-            workbook.Close();
-            Marshal.ReleaseComObject(workbook);
-            //quit and release
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlApp);
-
-
-        }
-
-        private Tray CreateTray(int code1,int code2)
-        {
-
-            var main = ListFood.Where(p => p.Id == code1).FirstOrDefault();
-            if (main == null)
-                MessageBox.Show(code1.ToString() + "  موجود نمی باشد. فایل اکسل را مجددا بررسی کنید");
-            var mokamel = ListFood.Where(p => p.Id == code2).FirstOrDefault();
-            if (mokamel == null)
-                MessageBox.Show(code2.ToString() + "  موجود نمی باشد. فایل اکسل را مجددا بررسی کنید");
-            if(main==null||mokamel==null)
-            {
-                return null; 
             }
             else
             {
-                return new Tray() { Name = main.Name, Image = main.Image, Note = mokamel.Name };
+                MessageBox.Show("انجام نشد");
+
             }
-         
+
+
+
+
+
+
+
         }
 
-        private Schedule CreateSchedule(string date,int meal)
+        private Tray CreateTray(int code1, int code2)
         {
-            return new Schedule() { SDate=date,Meal_Id_Fk=meal,Restaurant_Id_Fk=26,RegDate=DateTime.Now.ToPersianDateString(),Res_Cont_Contract_Id_Fk=2020,PorsNo=0};
+            string MokamelName = "";
+            var main = ListFood.Where(p => p.Id == code1).FirstOrDefault();
+            if (main == null)
+                MessageBox.Show("کد :  " + code1.ToString() + "  موجود نمی باشد.");
+            var mokamel = ListFood.Where(p => p.Id == code2).FirstOrDefault();
+
+            if (code2 == 0)
+            {
+
+            }
+            else if (mokamel == null & code2 != 0)
+                MessageBox.Show(code2.ToString() + "  موجود نمی باشد. فایل اکسل را مجددا بررسی کنید");
+            else
+                MokamelName = mokamel.Name;
+
+            if (main == null)
+            {
+                return null;
+            }
+            else
+            {
+                return new Tray() { Name = main.Name, Image = main.Image, Note = MokamelName };
+            }
+
+        }
+
+        private Schedule CreateSchedule(string date, int meal)
+        {
+            return new Schedule() { SDate = date, Meal_Id_Fk = meal, Restaurant_Id_Fk = 26, RegDate = DateTime.Now.ToPersianDateString(), Res_Cont_Contract_Id_Fk = 2020, PorsNo = 0 };
         }
     }
 }
