@@ -22,6 +22,7 @@ namespace ExcelFood
         List<Food> ListFood;
         bool AllowSaveCode = true;
         bool AllowSaveNull = true;
+        IExcelDataReader excelReader;
         public Form1()
         {
             InitializeComponent();
@@ -50,157 +51,158 @@ namespace ExcelFood
 
         private void btnRead_Click(object sender, EventArgs e)
         {
+
+            var CheckFormat = filePath.Split('.').Last();
+
             AllowSaveCode = true;
             AllowSaveNull = true;
             list.Clear();
 
 
-            TraySchedule Lunch1;
-            TraySchedule Lunch2;
-            TraySchedule Lunch3;
-
-            TraySchedule Dinner1;
-            TraySchedule Dinner2;
-            TraySchedule Dinner3;
-
-            try
+            if (CheckFormat.CompareTo("xls") == 0)
             {
-                //open excel
 
-                FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+                TraySchedule Lunch1;
+                TraySchedule Lunch2;
+                TraySchedule Lunch3;
 
-                //1. Reading from a binary Excel file ('97-2003 format; *.xls)
-                IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
-                //...
-                //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
-                //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-                //...
-                //3. DataSet - The result of each spreadsheet will be created in the result.Tables
-                DataSet result = excelReader.AsDataSet();
-                //...
-                //4. DataSet - Create column names from first row
-                //excelReader.IsFirstRowAsColumnNames = true;
-                //DataSet result = excelReader.AsDataSet();
+                TraySchedule Dinner1;
+                TraySchedule Dinner2;
+                TraySchedule Dinner3;
 
-                var Sheet2 = result.Tables[5];
-                //var rrr = Sheet2[1].ItemArray[1];
-                int count = 0;
-
-
-                foreach (DataRow item in Sheet2.Rows)
+                try
                 {
+                    //open excel
 
-                    if(count<34&count>2)
+                    FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+
+                    //1. Reading from a binary Excel file ('97-2003 format; *.xls)
+                    excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+                    //...
+                    //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+                    //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                    //...
+                    //3. DataSet - The result of each spreadsheet will be created in the result.Tables
+                    DataSet result = excelReader.AsDataSet();
+                    //...
+                    //4. DataSet - Create column names from first row
+                    //excelReader.IsFirstRowAsColumnNames = true;
+                    //DataSet result = excelReader.AsDataSet();
+
+                    var Sheet2 = result.Tables[5];
+                    //var rrr = Sheet2[1].ItemArray[1];
+                    int count = 0;
+
+
+                    foreach (DataRow item in Sheet2.Rows)
                     {
-                        Lunch1 = new TraySchedule();
-                        Lunch2 = new TraySchedule();
-                        Lunch3 = new TraySchedule();
 
-                        Dinner1 = new TraySchedule();
-                        Dinner2 = new TraySchedule();
-                        Dinner3 = new TraySchedule();
-
-
-
-                        try
+                        if (count < 34 & count > 2)
                         {
-                            var Date = item[2].ToString();
+                            Lunch1 = new TraySchedule();
+                            Lunch2 = new TraySchedule();
+                            Lunch3 = new TraySchedule();
 
-                            Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
-                            Lunch1.schedule = CreateSchedule(Date, 1);
+                            Dinner1 = new TraySchedule();
+                            Dinner2 = new TraySchedule();
+                            Dinner3 = new TraySchedule();
 
-                            Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
-                            Lunch2.schedule = CreateSchedule(Date, 1);
 
-                            Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
-                            Lunch3.schedule = CreateSchedule(Date, 1);
 
-                            Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
-                            Dinner1.schedule = CreateSchedule(Date, 2);
-
-                            Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
-                            Dinner2.schedule = CreateSchedule(Date, 2);
-
-                            Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
-                            Dinner3.schedule = CreateSchedule(Date, 2);
-
-                            list.Add(Lunch1);
-                            list.Add(Lunch2);
-                            list.Add(Lunch3);
-                            list.Add(Dinner1);
-                            list.Add(Dinner2);
-                            list.Add(Dinner3);
-
-                        }
-                        catch (IOException)
-                        {
-                            MessageBox.Show("فایل اکسل را ببندید");
-                        }
-                        catch (InvalidCastException)
-                        {
-
-                            AllowSaveNull = false;
-                            MessageBox.Show(" دارای فیلد خالی");
-                        }
-                        catch
-                        {
-                            MessageBox.Show("");
-                        }
-
-                        finally
-                        {
-                            //5. Data Reader methods
-                            while (excelReader.Read())
+                            try
                             {
-                                //excelReader.GetInt32(0);
+                                var Date = item[2].ToString();
+
+                                Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
+                                Lunch1.schedule = CreateSchedule(Date, 1);
+
+                                Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
+                                Lunch2.schedule = CreateSchedule(Date, 1);
+
+                                Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
+                                Lunch3.schedule = CreateSchedule(Date, 1);
+
+                                Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
+                                Dinner1.schedule = CreateSchedule(Date, 2);
+
+                                Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
+                                Dinner2.schedule = CreateSchedule(Date, 2);
+
+                                Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
+                                Dinner3.schedule = CreateSchedule(Date, 2);
+
+                                list.Add(Lunch1);
+                                list.Add(Lunch2);
+                                list.Add(Lunch3);
+                                list.Add(Dinner1);
+                                list.Add(Dinner2);
+                                list.Add(Dinner3);
+
+
+                            }
+                            catch (IOException)
+                            {
+                                MessageBox.Show("فایل اکسل را ببندید");
+                            }
+                            catch (InvalidCastException)
+                            {
+
+                                AllowSaveNull = false;
+                                MessageBox.Show(" دارای فیلد خالی");
+                            }
+                            catch
+                            {
+                                MessageBox.Show("");
                             }
 
-                            //6. Free resources (IExcelDataReader is IDisposable)
-                            //excelReader.Close();
+                            finally
+                            {
+                                //5. Data Reader methods
+                                while (excelReader.Read())
+                                {
+                                    //excelReader.GetInt32(0);
+                                }
 
+
+
+                            }
                         }
+
+                        count = count + 1;
                     }
-
-                    count = count + 1;
                 }
-            }
-            catch (IOException)
-            {
-
-                MessageBox.Show("فایل انتخاب شده را ببندید");
-            }
-
-
-            AllowSaveCode = list.All(p => p.tray != null);
-
-
-            // ----------------------------------------------------------
-
-            if (AllowSaveNull & AllowSaveCode)
-            {
-                lblNotification.Text = "بارگذاری فایل اکسل با موفقیت انجام شد";
-                lblNotification.ForeColor = Color.DarkGreen;
-
-                foreach (var item in list)
+                catch (IOException)
                 {
-                    //db.Trays.Add(item.tray);
-                    //db.SaveChanges();
 
-                    //item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
+                    MessageBox.Show("فایل انتخاب شده را ببندید");
+                    AllowSaveNull = false;
+                }
 
-                    //db.Schedules.Add(item.schedule);
-                    //db.SaveChanges();
+                //6. Free resources (IExcelDataReader is IDisposable)
+                excelReader.Close();
+                AllowSaveCode = list.All(p => p.tray != null);
 
+
+                // ----------------------------------------------------------
+
+                if (AllowSaveNull & AllowSaveCode)
+                {
+                    lblNotification.Text = "بارگذاری فایل اکسل با موفقیت انجام شد";
+                    lblNotification.ForeColor = Color.DarkGreen;
+                    btnBazbini.Visible = true;
 
                 }
-                MessageBox.Show("انجام شد");
+
+
 
             }
             else
             {
-                MessageBox.Show("انجام نشد");
-
+                MessageBox.Show("فایل ورودی اکسل نیست ");
             }
+
+
+
 
 
 
@@ -241,6 +243,17 @@ namespace ExcelFood
         private Schedule CreateSchedule(string date, int meal)
         {
             return new Schedule() { SDate = date, Meal_Id_Fk = meal, Restaurant_Id_Fk = 26, RegDate = DateTime.Now.ToPersianDateString(), Res_Cont_Contract_Id_Fk = 2020, PorsNo = 0 };
+        }
+
+        private void btnBazbini_Click(object sender, EventArgs e)
+        {
+            Bazbini frm = new Bazbini(list);
+            frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

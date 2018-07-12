@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelFood
 {
-    class TraySchedule
+  public  class TraySchedule
     {
         public Tray tray { get; set; }
         public Schedule schedule { get; set; }
