@@ -48,9 +48,10 @@
             this.btnBrowse.FlatAppearance.BorderSize = 4;
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowse.ForeColor = System.Drawing.Color.Black;
-            this.btnBrowse.Location = new System.Drawing.Point(761, 572);
+            this.btnBrowse.Location = new System.Drawing.Point(1015, 704);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(98, 46);
+            this.btnBrowse.Size = new System.Drawing.Size(131, 57);
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
@@ -60,12 +61,12 @@
             // 
             this.lblFilePath.AllowDrop = true;
             this.lblFilePath.BackColor = System.Drawing.Color.Transparent;
-            this.lblFilePath.Location = new System.Drawing.Point(574, 572);
+            this.lblFilePath.Location = new System.Drawing.Point(765, 704);
+            this.lblFilePath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilePath.Name = "lblFilePath";
             this.lblFilePath.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblFilePath.Size = new System.Drawing.Size(181, 46);
+            this.lblFilePath.Size = new System.Drawing.Size(241, 57);
             this.lblFilePath.TabIndex = 1;
-            this.lblFilePath.Text = "label1";
             this.lblFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnRead
@@ -76,9 +77,10 @@
             this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRead.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRead.ForeColor = System.Drawing.Color.Black;
-            this.btnRead.Location = new System.Drawing.Point(343, 557);
+            this.btnRead.Location = new System.Drawing.Point(457, 686);
+            this.btnRead.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(174, 61);
+            this.btnRead.Size = new System.Drawing.Size(232, 75);
             this.btnRead.TabIndex = 2;
             this.btnRead.Text = "بارگذاری فایل اکسل";
             this.btnRead.UseVisualStyleBackColor = false;
@@ -89,10 +91,11 @@
             this.lblNotification.AllowDrop = true;
             this.lblNotification.BackColor = System.Drawing.Color.Transparent;
             this.lblNotification.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblNotification.Location = new System.Drawing.Point(266, 24);
+            this.lblNotification.Location = new System.Drawing.Point(355, 30);
+            this.lblNotification.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNotification.Name = "lblNotification";
             this.lblNotification.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblNotification.Size = new System.Drawing.Size(314, 79);
+            this.lblNotification.Size = new System.Drawing.Size(419, 97);
             this.lblNotification.TabIndex = 3;
             this.lblNotification.Text = "فایل اکسل را انتخاب کنید";
             this.lblNotification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,9 +108,10 @@
             this.btnBazbini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBazbini.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnBazbini.ForeColor = System.Drawing.Color.Black;
-            this.btnBazbini.Location = new System.Drawing.Point(343, 219);
+            this.btnBazbini.Location = new System.Drawing.Point(457, 270);
+            this.btnBazbini.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBazbini.Name = "btnBazbini";
-            this.btnBazbini.Size = new System.Drawing.Size(153, 101);
+            this.btnBazbini.Size = new System.Drawing.Size(204, 124);
             this.btnBazbini.TabIndex = 4;
             this.btnBazbini.Text = "بازبینی رزروها";
             this.btnBazbini.UseVisualStyleBackColor = false;
@@ -122,9 +126,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(66, 557);
+            this.button1.Location = new System.Drawing.Point(88, 686);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 61);
+            this.button1.Size = new System.Drawing.Size(153, 75);
             this.button1.TabIndex = 5;
             this.button1.Text = "خروج";
             this.button1.UseVisualStyleBackColor = false;
@@ -132,16 +137,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ExcelFood.Properties.Resources.sky_blue_color_wallpaper_4;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(1179, 814);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBazbini);
             this.Controls.Add(this.lblNotification);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.lblFilePath);
             this.Controls.Add(this.btnBrowse);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

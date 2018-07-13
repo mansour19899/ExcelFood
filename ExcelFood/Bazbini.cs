@@ -26,6 +26,8 @@ namespace ExcelFood
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = list.Count();
+
+            
         }
 
         private void Bazbini_Load(object sender, EventArgs e)
