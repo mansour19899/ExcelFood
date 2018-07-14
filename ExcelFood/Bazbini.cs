@@ -13,7 +13,7 @@ namespace ExcelFood
     public partial class Bazbini : Form
     {
         List<TraySchedule> list;
-        int i = 180;
+        int i = 0;
         int count = 0;
         PoonehEntities db = null;
         List<Food> ListFood;
@@ -83,18 +83,36 @@ namespace ExcelFood
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(!AllowExit)
+            if (!AllowExit)
             {
-                label3.Text = "در حال ثبت در دیتابیس";
-                label3.ForeColor = Color.Navy;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                Bg.RunWorkerAsync();
+
+                DialogResult dialogResult = RtlMessageBox.Show("آیا اطمینان از ثبت اطلاعات در دیتا بیس را دارید؟", "تاییدیه ثبت ", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    label3.Text = "در حال ثبت در دیتابیس";
+                    label3.ForeColor = Color.Navy;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    Bg.RunWorkerAsync();
+
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+
+
             }
             else
             {
                 this.Close();
+           
             }
+
+
+
 
 
 
@@ -143,7 +161,16 @@ namespace ExcelFood
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = RtlMessageBox.Show("آیا اطمینان از انصراف را دارید؟", " ", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
     }
 }

@@ -45,12 +45,19 @@ namespace ExcelFood
                 filePath = openFileDialog1.FileName;
 
                 lblFilePath.Text = filePath;
-                int x = 0;
+                lblNotification.ForeColor = Color.Black;
+                lblNotification.Text = "فایل انتخاب شده را بارگذاری کنید";
+                btnRead.Enabled = true;
+
+                radioButton1.Enabled = true;
+                radioButton2.Enabled = true;
             }
         }
 
         private void btnRead_Click(object sender, EventArgs e)
         {
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
 
             var CheckFormat = filePath.Split('.').Last();
 
@@ -62,13 +69,6 @@ namespace ExcelFood
             if (CheckFormat.CompareTo("xls") == 0)
             {
 
-                TraySchedule Lunch1;
-                TraySchedule Lunch2;
-                TraySchedule Lunch3;
-
-                TraySchedule Dinner1;
-                TraySchedule Dinner2;
-                TraySchedule Dinner3;
 
                 try
                 {
@@ -89,87 +89,166 @@ namespace ExcelFood
                     //excelReader.IsFirstRowAsColumnNames = true;
                     //DataSet result = excelReader.AsDataSet();
 
-                    var Sheet2 = result.Tables[5];
-                    //var rrr = Sheet2[1].ItemArray[1];
-                    int count = 0;
-
-
-                    foreach (DataRow item in Sheet2.Rows)
+                    if (radioButton2.Checked)
                     {
+                        var Sheet2 = result.Tables[0];
+                        //var rrr = Sheet2[1].ItemArray[1];
+                        int count = 0;
 
-                        if (count < 34 & count > 2)
+                        TraySchedule NimehShab;
+
+                        foreach (DataRow item in Sheet2.Rows)
                         {
-                            Lunch1 = new TraySchedule();
-                            Lunch2 = new TraySchedule();
-                            Lunch3 = new TraySchedule();
 
-                            Dinner1 = new TraySchedule();
-                            Dinner2 = new TraySchedule();
-                            Dinner3 = new TraySchedule();
-
-
-
-                            try
+                            if (count < 34 & count > 2)
                             {
-                                var Date = item[2].ToString();
+                                NimehShab = new TraySchedule();
 
-                                Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
-                                Lunch1.schedule = CreateSchedule(Date, 1);
-
-                                Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
-                                Lunch2.schedule = CreateSchedule(Date, 1);
-
-                                Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
-                                Lunch3.schedule = CreateSchedule(Date, 1);
-
-                                Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
-                                Dinner1.schedule = CreateSchedule(Date, 2);
-
-                                Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
-                                Dinner2.schedule = CreateSchedule(Date, 2);
-
-                                Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
-                                Dinner3.schedule = CreateSchedule(Date, 2);
-
-                                list.Add(Lunch1);
-                                list.Add(Lunch2);
-                                list.Add(Lunch3);
-                                list.Add(Dinner1);
-                                list.Add(Dinner2);
-                                list.Add(Dinner3);
-
-
-                            }
-                            catch (IOException)
-                            {
-                                MessageBox.Show("فایل اکسل را ببندید");
-                            }
-                            catch (InvalidCastException)
-                            {
-
-                                AllowSaveNull = false;
-                                MessageBox.Show(" دارای فیلد خالی");
-                            }
-                            catch
-                            {
-                                MessageBox.Show("");
-                            }
-
-                            finally
-                            {
-                                //5. Data Reader methods
-                                while (excelReader.Read())
+                                try
                                 {
-                                    //excelReader.GetInt32(0);
+
+                                    var Date = item[1].ToString();
+
+                                    NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0);
+                                    NimehShab.schedule = CreateSchedule(Date, 3);
+
+
+
+                                    list.Add(NimehShab);
+
+
+                                }
+                                catch (IOException)
+                                {
+                                    MessageBox.Show("فایل اکسل را ببندید");
+                                }
+                                catch (InvalidCastException)
+                                {
+
+                                    AllowSaveNull = false;
+                                    MessageBox.Show(" دارای فیلد خالی");
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("");
                                 }
 
+                                finally
+                                {
+                                    //5. Data Reader methods
+                                    while (excelReader.Read())
+                                    {
+                                        //excelReader.GetInt32(0);
+                                    }
 
 
+
+                                }
                             }
+
+                            count = count + 1;
+
                         }
 
-                        count = count + 1;
                     }
+
+                    else
+                    {
+                        TraySchedule Lunch1;
+                        TraySchedule Lunch2;
+                        TraySchedule Lunch3;
+
+                        TraySchedule Dinner1;
+                        TraySchedule Dinner2;
+                        TraySchedule Dinner3;
+
+
+                        var Sheet2 = result.Tables[5];
+                        //var rrr = Sheet2[1].ItemArray[1];
+                        int count = 0;
+
+
+                        foreach (DataRow item in Sheet2.Rows)
+                        {
+
+                            if (count < 34 & count > 2)
+                            {
+                                Lunch1 = new TraySchedule();
+                                Lunch2 = new TraySchedule();
+                                Lunch3 = new TraySchedule();
+
+                                Dinner1 = new TraySchedule();
+                                Dinner2 = new TraySchedule();
+                                Dinner3 = new TraySchedule();
+
+
+
+                                try
+                                {
+                                    var Date = item[2].ToString();
+
+                                    Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
+                                    Lunch1.schedule = CreateSchedule(Date, 1);
+
+                                    Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
+                                    Lunch2.schedule = CreateSchedule(Date, 1);
+
+                                    Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
+                                    Lunch3.schedule = CreateSchedule(Date, 1);
+
+                                    Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
+                                    Dinner1.schedule = CreateSchedule(Date, 2);
+
+                                    Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
+                                    Dinner2.schedule = CreateSchedule(Date, 2);
+
+                                    Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
+                                    Dinner3.schedule = CreateSchedule(Date, 2);
+
+                                    list.Add(Lunch1);
+                                    list.Add(Lunch2);
+                                    list.Add(Lunch3);
+                                    list.Add(Dinner1);
+                                    list.Add(Dinner2);
+                                    list.Add(Dinner3);
+
+
+                                }
+                                catch (IOException)
+                                {
+                                    MessageBox.Show("فایل اکسل را ببندید");
+                                }
+                                catch (InvalidCastException)
+                                {
+
+                                    AllowSaveNull = false;
+                                    MessageBox.Show(" دارای فیلد خالی");
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("");
+                                }
+
+                                finally
+                                {
+                                    //5. Data Reader methods
+                                    while (excelReader.Read())
+                                    {
+                                        //excelReader.GetInt32(0);
+                                    }
+
+
+
+                                }
+                            }
+
+                            count = count + 1;
+                        }
+                    }
+
+
+
+
                 }
                 catch (IOException)
                 {

@@ -277,6 +277,7 @@
     <Compile Include="Res_Cont_Contract_Restaurant.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="RtlMessageBox.cs" />
     <Compile Include="Schedule.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
