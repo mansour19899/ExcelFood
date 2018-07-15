@@ -66,7 +66,7 @@ namespace ExcelFood
             list.Clear();
 
 
-            if (CheckFormat.CompareTo("xls") == 0)
+            if (CheckFormat.CompareTo("xls") == 0|| CheckFormat.CompareTo("xlsx") == 0)
             {
 
 
@@ -269,6 +269,7 @@ namespace ExcelFood
                     lblNotification.Text = "بارگذاری فایل اکسل با موفقیت انجام شد";
                     lblNotification.ForeColor = Color.DarkGreen;
                     btnBazbini.Visible = true;
+                    btnEnteshar.Visible = true;
 
                 }
 
@@ -277,7 +278,7 @@ namespace ExcelFood
             }
             else
             {
-                MessageBox.Show("فایل ورودی اکسل نیست ");
+                MessageBox.Show("فایل ورودی اکسل  نیست ");
             }
 
 
@@ -321,18 +322,66 @@ namespace ExcelFood
 
         private Schedule CreateSchedule(string date, int meal)
         {
-            return new Schedule() { SDate = date, Meal_Id_Fk = meal, Restaurant_Id_Fk = 26, RegDate = DateTime.Now.ToPersianDateString(), Res_Cont_Contract_Id_Fk = 2020, PorsNo = 0 };
+            return new Schedule() { SDate = date, Meal_Id_Fk = meal, Restaurant_Id_Fk = 26, RegDate = DateTime.Now.ToPersianDateString(), Res_Cont_Contract_Id_Fk = 2021, PorsNo = 0 };
         }
 
         private void btnBazbini_Click(object sender, EventArgs e)
         {
-            Bazbini frm = new Bazbini(list);
-            frm.ShowDialog();
+
+            if(radioButton1.Checked)
+            {
+                string temp = list.ElementAt(0).schedule.SDate;
+
+                bool CheckExist = db.Schedules.Any(p => p.SDate.CompareTo(temp) == 1&p.Meal_Id_Fk==1);
+                if (CheckExist)
+                {
+                    lblNotification.Text = "برنامه غذایی قبلا ثبت شده است";
+                    lblNotification.ForeColor = Color.DarkRed;
+                }
+                else
+                {
+ 
+                    Bazbini frm = new Bazbini(list, true);
+                    frm.ShowDialog();
+                }
+
+
+
+            }
+            else
+            {
+
+                string temp = list.ElementAt(0).schedule.SDate;
+
+                bool CheckExist = db.Schedules.Any(p => p.SDate.CompareTo(temp) == 1 & p.Meal_Id_Fk == 3);
+                if (CheckExist)
+                {
+                    lblNotification.Text = "برنامه غذایی قبلا ثبت شده است";
+                    lblNotification.ForeColor = Color.DarkRed;
+                }
+                else
+                {
+
+                    Bazbini frm = new Bazbini(list, false);
+                    frm.ShowDialog();
+                }
+
+
+            }
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEnteshar_Click(object sender, EventArgs e)
+        {
+            Enteshar frm = new Enteshar(list.ElementAt(0).schedule.SDate);
+            frm.ShowDialog();
         }
     }
 }

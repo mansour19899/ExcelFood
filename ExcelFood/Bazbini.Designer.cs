@@ -219,7 +219,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(884, 640);
+            this.panel1.Size = new System.Drawing.Size(884, 700);
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             // 
@@ -373,7 +373,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ExcelFood.Properties.Resources.sky_blue_color_wallpaper_4;
-            this.ClientSize = new System.Drawing.Size(884, 640);
+            this.ClientSize = new System.Drawing.Size(884, 700);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

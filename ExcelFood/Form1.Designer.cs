@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btnEnteshar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -107,9 +108,9 @@
             this.btnBazbini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBazbini.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnBazbini.ForeColor = System.Drawing.Color.Black;
-            this.btnBazbini.Location = new System.Drawing.Point(343, 219);
+            this.btnBazbini.Location = new System.Drawing.Point(460, 252);
             this.btnBazbini.Name = "btnBazbini";
-            this.btnBazbini.Size = new System.Drawing.Size(153, 101);
+            this.btnBazbini.Size = new System.Drawing.Size(182, 101);
             this.btnBazbini.TabIndex = 4;
             this.btnBazbini.Text = "بازبینی رزروها";
             this.btnBazbini.UseVisualStyleBackColor = false;
@@ -160,12 +161,30 @@
             this.radioButton2.Text = "نیمه شب";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
+            // btnEnteshar
+            // 
+            this.btnEnteshar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEnteshar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEnteshar.FlatAppearance.BorderSize = 5;
+            this.btnEnteshar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnteshar.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnEnteshar.ForeColor = System.Drawing.Color.Black;
+            this.btnEnteshar.Location = new System.Drawing.Point(237, 252);
+            this.btnEnteshar.Name = "btnEnteshar";
+            this.btnEnteshar.Size = new System.Drawing.Size(175, 101);
+            this.btnEnteshar.TabIndex = 8;
+            this.btnEnteshar.Text = "انتشار برنامه غذایی";
+            this.btnEnteshar.UseVisualStyleBackColor = false;
+            this.btnEnteshar.Visible = false;
+            this.btnEnteshar.Click += new System.EventHandler(this.btnEnteshar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ExcelFood.Properties.Resources.sky_blue_color_wallpaper_4;
             this.ClientSize = new System.Drawing.Size(884, 652);
+            this.Controls.Add(this.btnEnteshar);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button1);
@@ -194,6 +213,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button btnEnteshar;
     }
 }
 

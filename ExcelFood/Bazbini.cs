@@ -18,7 +18,8 @@ namespace ExcelFood
         PoonehEntities db = null;
         List<Food> ListFood;
         bool AllowExit = false;
-        public Bazbini(List<TraySchedule> List)
+        bool Type;
+        public Bazbini(List<TraySchedule> List, bool type)
         {
             list = List;
             InitializeComponent();
@@ -27,7 +28,9 @@ namespace ExcelFood
             progressBar1.Minimum = 0;
             progressBar1.Maximum = list.Count();
 
+            Type = type;
             
+
         }
 
         private void Bazbini_Load(object sender, EventArgs e)
@@ -41,17 +44,55 @@ namespace ExcelFood
 
         public void SetLabel()
         {
-            if(i<count)
+            if(i<count&Type)
             {
                 lblDate.Text = list.ElementAt(i + 0).schedule.SDate;
 
-                LblLunch1.Text = list.ElementAt(i + 0).tray.Name + "\n+" + list.ElementAt(i + 0).tray.Note;
-                LblLunch2.Text = list.ElementAt(i + 1).tray.Name + "\n+" + list.ElementAt(i + 1).tray.Note;
-                LblLunch3.Text = list.ElementAt(i + 2).tray.Name + "\n+" + list.ElementAt(i + 2).tray.Note;
+                LblLunch1.Text = list.ElementAt(i + 0).tray.Name + "\n((" + list.ElementAt(i + 0).tray.Note+"))";
+                LblLunch2.Text = list.ElementAt(i + 1).tray.Name + "\n((" + list.ElementAt(i + 1).tray.Note + "))";
+                LblLunch3.Text = list.ElementAt(i + 2).tray.Name + "\n((" + list.ElementAt(i + 2).tray.Note + "))";
 
-                lblDinner1.Text = list.ElementAt(i + 3).tray.Name + "\n+" + list.ElementAt(i + 3).tray.Note;
-                lblDinner2.Text = list.ElementAt(i + 4).tray.Name + "\n+" + list.ElementAt(i + 4).tray.Note;
-                lblDinner3.Text = list.ElementAt(i + 5).tray.Name + "\n+" + list.ElementAt(i + 5).tray.Note;
+                lblDinner1.Text = list.ElementAt(i + 3).tray.Name + "\n((" + list.ElementAt(i + 3).tray.Note + "))";
+                lblDinner2.Text = list.ElementAt(i + 4).tray.Name + "\n((" + list.ElementAt(i + 4).tray.Note + "))";
+                lblDinner3.Text = list.ElementAt(i + 5).tray.Name + "\n((" + list.ElementAt(i + 5).tray.Note + "))";
+
+                i = i + 6;
+            }
+
+           else if (i < count & !Type)
+            {
+                label1.Text = "";
+                label2.Text = "";
+                lblDate.Text = "";
+                LblLunch1.TextAlign = ContentAlignment.MiddleCenter;
+                LblLunch2.TextAlign = ContentAlignment.MiddleCenter;
+                LblLunch3.TextAlign = ContentAlignment.MiddleCenter;
+
+                lblDinner1.TextAlign = ContentAlignment.MiddleCenter;
+                lblDinner2.TextAlign = ContentAlignment.MiddleCenter;
+                lblDinner3.TextAlign = ContentAlignment.MiddleCenter;
+
+                if (i<30)
+                {
+                    LblLunch1.Text = list.ElementAt(i + 0).schedule.SDate + "\n" + list.ElementAt(i + 0).tray.Name;
+                    LblLunch2.Text = list.ElementAt(i + 1).schedule.SDate + "\n" + list.ElementAt(i + 1).tray.Name;
+                    LblLunch3.Text = list.ElementAt(i + 2).schedule.SDate + "\n" + list.ElementAt(i + 2).tray.Name;
+
+                    lblDinner1.Text = list.ElementAt(i + 3).schedule.SDate + "\n" + list.ElementAt(i + 3).tray.Name;
+                    lblDinner2.Text = list.ElementAt(i + 4).schedule.SDate + "\n" + list.ElementAt(i + 4).tray.Name;
+                    lblDinner3.Text = list.ElementAt(i + 5).schedule.SDate + "\n" + list.ElementAt(i + 5).tray.Name;
+                }
+                if (i == 30)
+                {
+                    LblLunch1.Text = list.ElementAt(i + 0).schedule.SDate + "\n" + list.ElementAt(i + 0).tray.Name;
+                    LblLunch2.Text = "";
+                    LblLunch3.Text = "";
+
+                    lblDinner1.Text = "";
+                    lblDinner2.Text = "";
+                    lblDinner3.Text = "";
+                }
+
 
                 i = i + 6;
             }

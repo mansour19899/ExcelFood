@@ -94,6 +94,12 @@
     <Compile Include="EmploymentType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Enteshar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enteshar.Designer.cs">
+      <DependentUpon>Enteshar.cs</DependentUpon>
+    </Compile>
     <Compile Include="EntireCost.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -353,6 +359,9 @@
     </Compile>
     <EmbeddedResource Include="Bazbini.resx">
       <DependentUpon>Bazbini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enteshar.resx">
+      <DependentUpon>Enteshar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
