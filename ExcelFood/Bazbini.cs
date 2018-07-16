@@ -162,6 +162,8 @@ namespace ExcelFood
         private void Bg_DoWork(object sender, DoWorkEventArgs e)
         {
             int i = 0;
+            bool nimeshab = list.Any(p => p.schedule.Meal_Id_Fk == 3);
+            
             foreach (var item in list)
             {
                 db.Trays.Add(item.tray);
@@ -170,6 +172,13 @@ namespace ExcelFood
                 item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
 
                 db.Schedules.Add(item.schedule);
+                if(nimeshab)
+                {
+                    Schedule nimeshab2 = new Schedule() {SDate=item.schedule.SDate,Restaurant_Id_Fk=27,Tray_Id_Fk=item.schedule.Tray_Id_Fk,
+                    RegDate=item.schedule.RegDate,Meal_Id_Fk=3,Res_Cont_Contract_Id_Fk=2020,PorsNo=0};
+
+                    db.Schedules.Add(nimeshab2);
+                }
                 db.SaveChanges();
 
                 i = i + 1;
@@ -183,6 +192,7 @@ namespace ExcelFood
                 System.Threading.Thread.Sleep(100);
 
             }
+
         }
 
         private void Bg_ProgressChanged(object sender, ProgressChangedEventArgs e)

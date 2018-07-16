@@ -33,6 +33,7 @@
             this.btnEnteshar = new System.Windows.Forms.Button();
             this.lblDarsad = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.Bg = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // lblNotification
@@ -76,6 +77,7 @@
             this.btnEnteshar.TabIndex = 5;
             this.btnEnteshar.Text = "انتشار";
             this.btnEnteshar.UseVisualStyleBackColor = false;
+            this.btnEnteshar.Click += new System.EventHandler(this.btnEnteshar_Click);
             // 
             // lblDarsad
             // 
@@ -94,6 +96,13 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(325, 52);
             this.progressBar1.TabIndex = 7;
+            // 
+            // Bg
+            // 
+            this.Bg.WorkerReportsProgress = true;
+            this.Bg.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_DoWork);
+            this.Bg.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_ProgressChanged);
+            this.Bg.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Bg_RunWorkerCompleted);
             // 
             // Enteshar
             // 
@@ -123,5 +132,6 @@
         private System.Windows.Forms.Button btnEnteshar;
         private System.Windows.Forms.Label lblDarsad;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker Bg;
     }
 }

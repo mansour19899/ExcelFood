@@ -38,6 +38,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.btnEnteshar = new System.Windows.Forms.Button();
+            this.btnNimehShab = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -50,12 +51,13 @@
             this.btnBrowse.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBrowse.FlatAppearance.BorderSize = 4;
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowse.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold);
             this.btnBrowse.ForeColor = System.Drawing.Color.Black;
-            this.btnBrowse.Location = new System.Drawing.Point(599, 556);
+            this.btnBrowse.Location = new System.Drawing.Point(754, 557);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(109, 61);
             this.btnBrowse.TabIndex = 0;
-            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Text = "برنامه غذایی";
             this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
@@ -139,7 +141,7 @@
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(754, 556);
+            this.radioButton1.Location = new System.Drawing.Point(754, 467);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButton1.Size = new System.Drawing.Size(98, 28);
@@ -147,19 +149,21 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "برنامه غذایی";
             this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.Visible = false;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.Location = new System.Drawing.Point(775, 589);
+            this.radioButton2.Location = new System.Drawing.Point(775, 501);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButton2.Size = new System.Drawing.Size(77, 28);
             this.radioButton2.TabIndex = 7;
             this.radioButton2.Text = "نیمه شب";
             this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.Visible = false;
             // 
             // btnEnteshar
             // 
@@ -178,12 +182,29 @@
             this.btnEnteshar.Visible = false;
             this.btnEnteshar.Click += new System.EventHandler(this.btnEnteshar_Click);
             // 
+            // btnNimehShab
+            // 
+            this.btnNimehShab.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNimehShab.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNimehShab.FlatAppearance.BorderSize = 4;
+            this.btnNimehShab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNimehShab.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold);
+            this.btnNimehShab.ForeColor = System.Drawing.Color.Black;
+            this.btnNimehShab.Location = new System.Drawing.Point(599, 556);
+            this.btnNimehShab.Name = "btnNimehShab";
+            this.btnNimehShab.Size = new System.Drawing.Size(109, 61);
+            this.btnNimehShab.TabIndex = 9;
+            this.btnNimehShab.Text = "نیمه شب";
+            this.btnNimehShab.UseVisualStyleBackColor = false;
+            this.btnNimehShab.Click += new System.EventHandler(this.btnNimehShab_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ExcelFood.Properties.Resources.sky_blue_color_wallpaper_4;
             this.ClientSize = new System.Drawing.Size(884, 652);
+            this.Controls.Add(this.btnNimehShab);
             this.Controls.Add(this.btnEnteshar);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -214,6 +235,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button btnEnteshar;
+        private System.Windows.Forms.Button btnNimehShab;
     }
 }
 

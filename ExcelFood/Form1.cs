@@ -52,6 +52,7 @@ namespace ExcelFood
                 radioButton1.Enabled = true;
                 radioButton2.Enabled = true;
             }
+            radioButton1.Checked = true;
         }
 
         private void btnRead_Click(object sender, EventArgs e)
@@ -112,9 +113,8 @@ namespace ExcelFood
                                     NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0);
                                     NimehShab.schedule = CreateSchedule(Date, 3);
 
-
-
                                     list.Add(NimehShab);
+
 
 
                                 }
@@ -270,6 +270,10 @@ namespace ExcelFood
                     lblNotification.ForeColor = Color.DarkGreen;
                     btnBazbini.Visible = true;
                     btnEnteshar.Visible = true;
+                    if (radioButton2.Checked)
+                        btnEnteshar.Enabled = false;
+                    else
+                        btnEnteshar.Enabled = true;
 
                 }
 
@@ -382,6 +386,23 @@ namespace ExcelFood
         {
             Enteshar frm = new Enteshar(list.ElementAt(0).schedule.SDate);
             frm.ShowDialog();
+        }
+
+        private void btnNimehShab_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "File 1";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //save selected file name
+                filePath = openFileDialog1.FileName;
+
+                lblFilePath.Text = filePath;
+                lblNotification.ForeColor = Color.Black;
+                lblNotification.Text = "فایل انتخاب شده را بارگذاری کنید";
+                btnRead.Enabled = true;
+
+            }
+            radioButton2.Checked = true;
         }
     }
 }
