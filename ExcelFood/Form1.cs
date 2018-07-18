@@ -60,6 +60,8 @@ namespace ExcelFood
             radioButton1.Enabled = false;
             radioButton2.Enabled = false;
 
+            int StartDay = 0, EndDay = 0;
+
             var CheckFormat = filePath.Split('.').Last();
 
             AllowSaveCode = true;
@@ -98,10 +100,16 @@ namespace ExcelFood
 
                         TraySchedule NimehShab;
 
+                        var Datemounth =Sheet2.Rows[3][1].ToString().Substring(5,2);
+                        if(Datemounth.CompareTo("06")==1)
+                        {
+                            EndDay = 1;
+                        }
+
                         foreach (DataRow item in Sheet2.Rows)
                         {
 
-                            if (count < 34 & count > 2)
+                            if (count < 34-EndDay & count > 2+StartDay)
                             {
                                 NimehShab = new TraySchedule();
 
@@ -167,11 +175,16 @@ namespace ExcelFood
                         //var rrr = Sheet2[1].ItemArray[1];
                         int count = 0;
 
-
+                        var Datemounth = Sheet2.Rows[3][2].ToString().Substring(5, 2);
+                        if (Datemounth.CompareTo("06") == 1)
+                        {
+                            EndDay = 1;
+                        }
+                      
                         foreach (DataRow item in Sheet2.Rows)
                         {
 
-                            if (count < 34 & count > 2)
+                            if (count < 34-EndDay & count > 2+StartDay)
                             {
                                 Lunch1 = new TraySchedule();
                                 Lunch2 = new TraySchedule();

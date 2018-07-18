@@ -121,7 +121,8 @@ namespace ExcelFood
         {
             if (!AllowExit)
             {
-
+                btnEnteshar.Enabled = false;
+                btnCancel.Enabled = false;
                 listRes = new List<RestaurantContract>()
             {
                 new RestaurantContract(){Restaurant=28,Contract=2021},
@@ -229,6 +230,7 @@ namespace ExcelFood
             lblNotification.ForeColor = Color.DarkGreen;
 
             AllowExit = true;
+            btnEnteshar.Enabled = true;
             btnEnteshar.Text = "خروج";
         }
     }
