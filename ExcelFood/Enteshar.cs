@@ -129,22 +129,22 @@ namespace ExcelFood
                 new RestaurantContract(){Restaurant=29,Contract=2021},
                 new RestaurantContract(){Restaurant=32,Contract=2021},
                 new RestaurantContract(){Restaurant=38,Contract=2021},
-                new RestaurantContract(){Restaurant=39,Contract=2021},
                 new RestaurantContract(){Restaurant=40,Contract=2021},
                 new RestaurantContract(){Restaurant=41,Contract=2021},
                 new RestaurantContract(){Restaurant=42,Contract=2021},
                 new RestaurantContract(){Restaurant=44,Contract=2021},
                 new RestaurantContract(){Restaurant=49,Contract=2021},
                 new RestaurantContract(){Restaurant=50,Contract=2021},
-                new RestaurantContract(){Restaurant=50,Contract=2021},
-                new RestaurantContract(){Restaurant=27,Contract=2020},
-                new RestaurantContract(){Restaurant=30,Contract=2020},
-                new RestaurantContract(){Restaurant=31,Contract=2020},
-                new RestaurantContract(){Restaurant=33,Contract=2020},
-                new RestaurantContract(){Restaurant=34,Contract=2020},
-                new RestaurantContract(){Restaurant=37,Contract=2020},
-                new RestaurantContract(){Restaurant=36,Contract=2020},
-                new RestaurantContract(){Restaurant=53,Contract=2020}
+                new RestaurantContract(){Restaurant=51,Contract=2021},
+                new RestaurantContract(){Restaurant=35,Contract=2022},
+                new RestaurantContract(){Restaurant=27,Contract=2022},
+                new RestaurantContract(){Restaurant=30,Contract=2022},
+                new RestaurantContract(){Restaurant=31,Contract=2022},
+                new RestaurantContract(){Restaurant=33,Contract=2022},
+                new RestaurantContract(){Restaurant=34,Contract=2022},
+                new RestaurantContract(){Restaurant=37,Contract=2022},
+                new RestaurantContract(){Restaurant=36,Contract=2022},
+                new RestaurantContract(){Restaurant=53,Contract=2022}
 
             };
 

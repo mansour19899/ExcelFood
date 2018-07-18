@@ -175,7 +175,7 @@ namespace ExcelFood
                 if(nimeshab)
                 {
                     Schedule nimeshab2 = new Schedule() {SDate=item.schedule.SDate,Restaurant_Id_Fk=27,Tray_Id_Fk=item.schedule.Tray_Id_Fk,
-                    RegDate=item.schedule.RegDate,Meal_Id_Fk=3,Res_Cont_Contract_Id_Fk=2020,PorsNo=0};
+                    RegDate=item.schedule.RegDate,Meal_Id_Fk=3,Res_Cont_Contract_Id_Fk=2022,PorsNo=0};
 
                     db.Schedules.Add(nimeshab2);
                 }
