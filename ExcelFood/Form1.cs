@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using ExcelDataReader;
+using System.Text.RegularExpressions;
 
 namespace ExcelFood
 {
@@ -22,6 +23,7 @@ namespace ExcelFood
         List<Food> ListFood;
         bool AllowSaveCode = true;
         bool AllowSaveNull = true;
+        bool AllowTrueDate = true;
         IExcelDataReader excelReader;
         public Form1()
         {
@@ -68,6 +70,7 @@ namespace ExcelFood
             AllowSaveNull = true;
             list.Clear();
 
+            Regex emp1 = new Regex(@"1(3|4)(9|0)[\d]/(0[1-9]|1[0-2])/(0[1-9]|[1-2][\d]|3[0-1])");
 
             if (CheckFormat.CompareTo("xls") == 0|| CheckFormat.CompareTo("xlsx") == 0)
             {
@@ -109,7 +112,7 @@ namespace ExcelFood
                         foreach (DataRow item in Sheet2.Rows)
                         {
 
-                            if (count < 34-EndDay & count > 2+StartDay)
+                            if (count < 34-EndDay & count > 2+StartDay&AllowTrueDate)
                             {
                                 NimehShab = new TraySchedule();
 
@@ -117,6 +120,17 @@ namespace ExcelFood
                                 {
 
                                     var Date = item[1].ToString();
+
+                                    var IsTrueDate = emp1.IsMatch(Date);
+
+                                    if (!IsTrueDate)
+                                    {
+                                        MessageBox.Show(string.Format(" تاریخ {0} را با فرمت درست وارد کنید", Date));
+                                        AllowTrueDate = false;
+
+                                    }
+
+
 
                                     NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0);
                                     NimehShab.schedule = CreateSchedule(Date, 3);
@@ -171,7 +185,7 @@ namespace ExcelFood
                         TraySchedule Dinner3;
 
 
-                        var Sheet2 = result.Tables[5];
+                        var Sheet2 = result.Tables["code"];
                         //var rrr = Sheet2[1].ItemArray[1];
                         int count = 0;
 
@@ -180,11 +194,13 @@ namespace ExcelFood
                         {
                             EndDay = 1;
                         }
-                      
+
+                       
+
                         foreach (DataRow item in Sheet2.Rows)
                         {
 
-                            if (count < 34-EndDay & count > 2+StartDay)
+                            if (count < 34-EndDay & count > 2+StartDay&AllowTrueDate)
                             {
                                 Lunch1 = new TraySchedule();
                                 Lunch2 = new TraySchedule();
@@ -194,11 +210,21 @@ namespace ExcelFood
                                 Dinner2 = new TraySchedule();
                                 Dinner3 = new TraySchedule();
 
-
+                               
 
                                 try
                                 {
                                     var Date = item[2].ToString();
+
+                                    var IsTrueDate = emp1.IsMatch(Date);
+
+                                    if(!IsTrueDate)
+                                    {
+                                        MessageBox.Show(string.Format(" تاریخ {0} را با فرمت درست وارد کنید", Date));
+                                        AllowTrueDate = false;
+
+                                    }
+
 
                                     Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
                                     Lunch1.schedule = CreateSchedule(Date, 1);
@@ -276,8 +302,9 @@ namespace ExcelFood
 
 
                 // ----------------------------------------------------------
+                
 
-                if (AllowSaveNull & AllowSaveCode)
+                if (AllowSaveNull & AllowSaveCode&AllowTrueDate)
                 {
                     lblNotification.Text = "بارگذاری فایل اکسل با موفقیت انجام شد";
                     lblNotification.ForeColor = Color.DarkGreen;
@@ -290,6 +317,14 @@ namespace ExcelFood
 
                 }
 
+                if(!AllowTrueDate)
+                {
+                    lblNotification.Text = "فایل را دوباره بارگذاری کنید";
+                    lblNotification.ForeColor = Color.DarkRed;
+                    AllowTrueDate = true;
+                    btnBazbini.Visible = false;
+                    btnEnteshar.Visible = false;
+                }
 
 
             }
