@@ -11,6 +11,8 @@ namespace ExcelFood
         public Tray tray { get; set; }
         public Schedule schedule { get; set; }
 
+        public List<TrayItem> trayItem { get; set; }
+
         public TraySchedule()
         {
             //tray = new Tray();

@@ -170,8 +170,15 @@ namespace ExcelFood
                 db.SaveChanges();
 
                 item.schedule.Tray_Id_Fk = Convert.ToInt16(item.tray.Id);
-
                 db.Schedules.Add(item.schedule);
+
+                foreach (var itemm in item.trayItem)
+                {
+                    itemm.Tray_Id_Fk= Convert.ToInt16(item.tray.Id);
+                    db.TrayItems.Add(itemm);
+                }
+
+
                 if(nimeshab)
                 {
                     Schedule nimeshab2 = new Schedule() {SDate=item.schedule.SDate,Restaurant_Id_Fk=27,Tray_Id_Fk=item.schedule.Tray_Id_Fk,

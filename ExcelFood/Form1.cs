@@ -131,8 +131,9 @@ namespace ExcelFood
                                     }
 
 
+                                    List<TrayItem> t = new List<TrayItem>();
 
-                                    NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0);
+                                    NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0,out t);
                                     NimehShab.schedule = CreateSchedule(Date, 3);
 
                                     list.Add(NimehShab);
@@ -225,25 +226,37 @@ namespace ExcelFood
 
                                     }
 
+                                    List<TrayItem> t = new List<TrayItem>();
 
-                                    Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]));
+                                    Lunch1.tray = CreateTray(Convert.ToInt16(item[4]), Convert.ToInt16(item[5]),out t);
                                     Lunch1.schedule = CreateSchedule(Date, 1);
+                                    Lunch1.trayItem = t.ToList();
+                                    t.Clear();
 
-                                    Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]));
+                                    Lunch2.tray = CreateTray(Convert.ToInt16(item[6]), Convert.ToInt16(item[7]),out t);
                                     Lunch2.schedule = CreateSchedule(Date, 1);
+                                    Lunch2.trayItem = t.ToList();
+                                    t.Clear();
 
-                                    Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]));
+                                    Lunch3.tray = CreateTray(Convert.ToInt16(item[8]), Convert.ToInt16(item[9]),out t);
                                     Lunch3.schedule = CreateSchedule(Date, 1);
+                                    Lunch3.trayItem = t.ToList();
+                                    t.Clear();
 
-                                    Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]));
+                                    Dinner1.tray = CreateTray(Convert.ToInt16(item[14]), Convert.ToInt16(item[15]),out t);
                                     Dinner1.schedule = CreateSchedule(Date, 2);
+                                    Dinner1.trayItem = t.ToList();
+                                    t.Clear();
 
-                                    Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]));
+                                    Dinner2.tray = CreateTray(Convert.ToInt16(item[16]), Convert.ToInt16(item[17]),out t);
                                     Dinner2.schedule = CreateSchedule(Date, 2);
+                                    Dinner2.trayItem = t.ToList();
+                                    t.Clear();
 
-                                    Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]));
+                                    Dinner3.tray = CreateTray(Convert.ToInt16(item[18]), Convert.ToInt16(item[19]),out t);
                                     Dinner3.schedule = CreateSchedule(Date, 2);
-
+                                    Dinner3.trayItem = t.ToList();
+                                    t.Clear();
                                     list.Add(Lunch1);
                                     list.Add(Lunch2);
                                     list.Add(Lunch3);
@@ -344,12 +357,15 @@ namespace ExcelFood
 
         }
 
-        private Tray CreateTray(int code1, int code2)
+        private Tray CreateTray(int code1, int code2,out List<TrayItem> trayitem)
         {
+            trayitem = new List<TrayItem>();
+
             string MokamelName = "";
             var main = ListFood.Where(p => p.Id == code1).FirstOrDefault();
             if (main == null)
                 MessageBox.Show("کد :  " + code1.ToString() + "  موجود نمی باشد.");
+            trayitem.Add(new TrayItem() {Food_Id_Fk=main.Id });
             var mokamel = ListFood.Where(p => p.Id == code2).FirstOrDefault();
 
             if (code2 == 0)
@@ -359,7 +375,11 @@ namespace ExcelFood
             else if (mokamel == null & code2 != 0)
                 MessageBox.Show(code2.ToString() + "  موجود نمی باشد. فایل اکسل را مجددا بررسی کنید");
             else
+            {
                 MokamelName = mokamel.Name;
+                trayitem.Add(new TrayItem() {Food_Id_Fk=mokamel.Id });
+            }
+                
 
             if (main == null)
             {
