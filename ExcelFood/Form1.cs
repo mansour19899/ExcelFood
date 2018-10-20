@@ -135,6 +135,8 @@ namespace ExcelFood
 
                                     NimehShab.tray = CreateTray(Convert.ToInt16(item[5]),0,out t);
                                     NimehShab.schedule = CreateSchedule(Date, 3);
+                                    NimehShab.trayItem = t.ToList();
+                                    t.Clear();
 
                                     list.Add(NimehShab);
 
@@ -387,7 +389,7 @@ namespace ExcelFood
             }
             else
             {
-                return new Tray() { Name = main.Name, Image = main.Image, Note = MokamelName };
+                return new Tray() { Name = main.Name, Image = main.Image, Note = MokamelName,Food_Id_Fk=main.Id };
             }
 
         }
